@@ -24,7 +24,8 @@ class _MyAppState extends State<MyApp> {
           displayLarge: GoogleFonts.permanentMarker(fontSize: 30,color:const Color(0xFFFFB700),fontWeight: FontWeight.w400),
           displaySmall: GoogleFonts.permanentMarker(fontSize: 16,color:const Color(0xFFFFB700),fontWeight: FontWeight.w400),
           headlineSmall: GoogleFonts.poppins(fontSize: 16,color: Colors.white),
-          titleLarge:const TextStyle(fontSize: 24,color: Colors.white)
+          titleLarge:const TextStyle(fontSize: 24,color: Colors.white),
+          titleMedium:  GoogleFonts.poppins(fontSize: 16,color:const Color(0xFF111111)),
         )
       ),
       initialRoute: '/Home',

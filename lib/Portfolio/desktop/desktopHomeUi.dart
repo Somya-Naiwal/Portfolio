@@ -1,7 +1,35 @@
+import 'package:carousel_slider/carousel_controller.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class DesktopUi extends StatelessWidget {
-  DesktopUi({super.key});
+class DesktopUi extends StatefulWidget {
+  const DesktopUi({Key? key}) : super(key: key);
+
+  @override
+  State<DesktopUi> createState() => _DesktopUiState();
+}
+
+class _DesktopUiState extends State<DesktopUi> {
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _msgController = TextEditingController();
+
+ final List<String> slider1 = [
+    'assets/images/s1.jpg',
+    'assets/images/s2.jpg',
+    'assets/images/s3.jpg',
+    'assets/images/s4.jpg',
+    'assets/images/s5.jpg',
+    'assets/images/s6.jpg',
+    'assets/images/s7.jpg',
+    'assets/images/s8.jpg',
+    'assets/images/s9.jpg',
+  ];
+
+  final CarouselController slider1Controller = CarouselController();
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -11,7 +39,7 @@ class DesktopUi extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height / 2,
+            height: MediaQuery.of(context).size.height *.6,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -83,13 +111,14 @@ class DesktopUi extends StatelessWidget {
             height: 200,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height / 2,
+            height: MediaQuery.of(context).size.height *.6,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.2,
                   child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
                     child:
                         Image.asset('assets/images/p1.jpg', fit: BoxFit.cover),
                   ),
@@ -150,7 +179,9 @@ class DesktopUi extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            const SizedBox(width: 2,),
+                            const SizedBox(
+                              width: 2,
+                            ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -216,7 +247,9 @@ class DesktopUi extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            const SizedBox(width: 2,),
+                            const SizedBox(
+                              width: 2,
+                            ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -272,7 +305,9 @@ class DesktopUi extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            const SizedBox(width: 2,),
+                            const SizedBox(
+                              width: 2,
+                            ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -301,8 +336,11 @@ class DesktopUi extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(
+            height: 50,
+          ),
           SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
+              height: MediaQuery.of(context).size.height * .6,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -310,8 +348,184 @@ class DesktopUi extends StatelessWidget {
                     'PORTFOLIO  ___________',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .5,
+                    child: InkWell(
+                      child: CarouselSlider(
+                          items: slider1.map((imagePath) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Image.asset(
+                                imagePath,
+                                fit: BoxFit.fill,
+                                height: MediaQuery.of(context).size.height * .4,
+                                width: MediaQuery.of(context).size.width *.5, // You can adjust the BoxFit as needed.
+                              ),
+                            );
+                          }).toList(),
+                          carouselController: slider1Controller,
+                          options: CarouselOptions(
+                            autoPlay: true,
+                            scrollPhysics: const BouncingScrollPhysics(),
+                            aspectRatio: 3,
+                            autoPlayCurve: Curves.linear,
+                            enlargeCenterPage: true,
+
+                            viewportFraction: 1,
+                            onPageChanged: (index, reason) {
+                              setState(() {
+                                currentIndex=index;
+                              });
+                            },
+                          )),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: slider1.map((imagePath){
+                      int index = slider1.indexOf(imagePath);
+                      return GestureDetector(
+                        // onTap: () {
+                        //   setState(() {
+                        //     currentIndex = entry.key;
+                        //     slider1Controller.animateToPage(entry.key);
+                        //   });
+                        // },
+                        child: Container(
+                          width:  7,
+                          height: 7,
+                          margin: const EdgeInsets.symmetric(horizontal: 3),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: currentIndex == index
+                                ? Colors.amber
+                                : Colors.white,
+                          ),
+                        ),
+                      );
+                    }
+                    ).toList(),
+                  )
                 ],
               )),
+            
+            const SizedBox(height: 150,),
+            SizedBox(
+              child: Column(
+                children: [
+                   Text(
+                    'CONTACT  ___________',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 50,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Let\'s Work',style: Theme.of(context).textTheme.displayLarge,),
+                          const SizedBox(height: 30,),
+                          SizedBox(
+                            height:MediaQuery.of(context).size.height*.3,
+                             width:MediaQuery.of(context).size.width*.3,
+                            
+                            child: Text('It\'s important to have a brand that represents you and what you stand for. That\'s why I\'m committed to helping you create a website that truly represents you, resonates with your audience, and makes a real difference. Together we can create a website that inspires, inspires and makes an impact. Let\'s do that!',
+                            style: Theme.of(context).textTheme.headlineSmall,),
+                          ),
+                        ],
+                      ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width/4,
+                    height: MediaQuery.of(context).size.height/1.5,
+                   // color: Colors.amber,
+                    child:    Padding(
+                      padding:const EdgeInsetsDirectional.all(8), 
+                      child :Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Name",style: Theme.of(context).textTheme.headlineSmall,),
+                          TextFormField(
+                            controller: _nameController,
+                            decoration: InputDecoration(
+                              border: UnderlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                              filled: true,
+                              fillColor: Colors.white54,
+                              hintText: 'Write your name here',
+                              hintStyle:const TextStyle(fontSize: 14,color: Colors.white),
+                              focusColor: Colors.amber
+                            ),
+                          ),
+                          const SizedBox(height: 15,),
+                           Text("Email",style: Theme.of(context).textTheme.headlineSmall,),
+                          TextFormField(
+                            controller: _emailController,
+                            decoration: InputDecoration(
+                              border: UnderlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                              filled: true,
+                              fillColor: Colors.white54,
+                              hintText: 'Write your email here',
+                              hintStyle:const TextStyle(fontSize: 14,color: Colors.white),
+                              focusColor: Colors.amber
+                            ),
+                          ),
+                           const SizedBox(height: 15,),
+                           Text("Message",style: Theme.of(context).textTheme.headlineSmall,),
+                          TextFormField(
+                            maxLines: 5,
+                            controller: _msgController,
+                            decoration: InputDecoration(
+                              border: UnderlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                              filled: true,
+                              fillColor: Colors.white54,
+                              hintText: 'Write your message here',
+                              hintStyle:const TextStyle(fontSize: 14,color: Colors.white),
+                              focusColor: Colors.amber
+                            ),
+                          ),
+                          const SizedBox(height: 15,),
+                          ElevatedButton(onPressed: (){},
+                          style:const ButtonStyle( 
+                            elevation: MaterialStatePropertyAll(5),
+                            shadowColor: MaterialStatePropertyAll(Colors.white),
+                            backgroundColor: MaterialStatePropertyAll(Color(0xFFFFB700))
+                          ),
+                           child:const Text('Send',style: TextStyle(fontWeight: FontWeight.w600,color: Colors.black),))
+                        ],
+                      ),
+                  ) ,
+                  )
+                  
+                 
+                    ],
+                  )
+
+                ],
+              ),
+            ),
+           Container(
+            
+            color:const Color(0xFFFFB700),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(onPressed: (){},child:Text('Home',style: Theme.of(context).textTheme.titleMedium,) ),
+                    TextButton(onPressed: (){},child:Text('About',style: Theme.of(context).textTheme.titleMedium,) ),
+                    TextButton(onPressed: (){},child:Text('Portfolio',style: Theme.of(context).textTheme.titleMedium,) ),
+                    TextButton(onPressed: (){},child:Text('Resume',style: Theme.of(context).textTheme.titleMedium,) ),
+                    TextButton(onPressed: (){},child:Text('Contact',style: Theme.of(context).textTheme.titleMedium,) ),
+                    
+                  ],
+                ),
+                Text('S.S.Naiwal _6464',style: GoogleFonts.permanentMarker(fontSize: 36,color:const Color(0xFF111111),),),
+                const SizedBox(height: 15,)
+              ],
+            ),
+           )
+
         ],
       ),
     ));
