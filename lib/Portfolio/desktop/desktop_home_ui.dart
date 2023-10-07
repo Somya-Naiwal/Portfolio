@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,9 +10,9 @@ class DesktopUi extends StatefulWidget {
 }
 
 class _DesktopUiState extends State<DesktopUi> {
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _msgController = TextEditingController();
+ final TextEditingController _nameController = TextEditingController();
+ final TextEditingController _emailController = TextEditingController();
+ final TextEditingController _msgController = TextEditingController();
 
  final List<String> slider1 = [
     'assets/images/s1.jpg',

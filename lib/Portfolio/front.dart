@@ -1,4 +1,4 @@
-import 'package:demo/Portfolio/desktop/desktopHomeUi.dart';
+import 'package:demo/Portfolio/desktop/desktop_home_ui.dart';
 import 'package:demo/Portfolio/mobile/mobile_main.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';

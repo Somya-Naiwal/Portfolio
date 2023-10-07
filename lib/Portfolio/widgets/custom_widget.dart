@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class CustomCertificateWidget extends StatelessWidget {
    CustomCertificateWidget({super.key,required this.imagePath});
-  var imagePath;
+   // ignore: prefer_typing_uninitialized_variables
+   var  imagePath;
 
   @override
   Widget build(BuildContext context) {
