@@ -15,7 +15,7 @@ class _FrontScreenState extends State<FrontScreen> {
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
       mobile:(BuildContext context) =>const MobileUi(),
-      desktop: (BuildContext context) => DesktopUi(),
+      desktop: (BuildContext context) =>const DesktopUi(),
     );
   }
 }

@@ -5,8 +5,10 @@ class MAboutUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.purple,
-    );
+    return SafeArea(child: 
+    Scaffold(
+      backgroundColor: Theme.of(context).cardColor,
+      body:ListView() ,
+    ));
   }
 }
