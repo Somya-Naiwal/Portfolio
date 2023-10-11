@@ -16,7 +16,7 @@ class _MobileUiState extends State<MobileUi> {
 
   final List _pages = [
     const MobileHome(),
-    const Mcetificates(),
+    const Mcertificates(),
     const MAboutUs(),
     const McontactUs(),
   ];

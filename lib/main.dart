@@ -1,3 +1,6 @@
+import 'package:demo/Portfolio/mobile/about_mobile.dart';
+import 'package:demo/Portfolio/mobile/certificates_mobile.dart';
+import 'package:demo/Portfolio/mobile/contact_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Portfolio/front.dart';
@@ -28,9 +31,13 @@ class _MyAppState extends State<MyApp> {
           titleMedium:  GoogleFonts.poppins(fontSize: 16,color:const Color(0xFF111111)),
         )
       ),
-      initialRoute: '/Home',
+      initialRoute: '/home',
       routes: {
-        '/Home': (context) =>const FrontScreen(),
+        '/home': (context) =>const FrontScreen(),
+        '/about': (context) =>const MAboutUs(),
+        '/certificates':(context) => const Mcertificates(),
+        '/contact': (context) =>const McontactUs(),
+
       },
     );
 
