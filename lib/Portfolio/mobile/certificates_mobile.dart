@@ -10,6 +10,13 @@ class Mcertificates extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).cardColor,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          toolbarHeight: 50,
+          leading: IconButton(onPressed: (){
+            Navigator.pushNamed(context, '/home');
+          }, icon:const Icon(Icons.arrow_back_outlined,color: Colors.white,)),
+        ),
         body: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 15),
           children: [

@@ -8,6 +8,13 @@ class McontactUs extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).cardColor,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          toolbarHeight: 50,
+          leading: IconButton(onPressed: (){
+            Navigator.pushNamed(context, '/home');
+          }, icon:const Icon(Icons.arrow_back_outlined,color: Colors.white,)),
+        ),
         body: ListView(
           physics:const BouncingScrollPhysics(),
           padding:const EdgeInsets.all(25),
