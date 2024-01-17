@@ -24,6 +24,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
     <style>
         body {
             background-color: cadetblue;
+            text-align: center;
         }
 
         button {
@@ -38,7 +39,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
 
 </head>
     
-<body bgcolor="cian">
+<body>
     <h1>It's a web view</h1>
     <button onclick="redirectToGoogle()">Go to Google</button>
 
