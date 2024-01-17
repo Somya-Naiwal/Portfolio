@@ -2,6 +2,7 @@ import 'package:demo/Portfolio/mobile/about_mobile.dart';
 import 'package:demo/Portfolio/mobile/certificates_mobile.dart';
 import 'package:demo/Portfolio/mobile/contact_mobile.dart';
 import 'package:demo/Portfolio/mobile/mobile_home.dart';
+import 'package:demo/Portfolio/mobile/web_view.dart';
 import 'package:flutter/material.dart';
 
 class MobileUi extends StatefulWidget {
@@ -20,10 +21,22 @@ class _MobileUiState extends State<MobileUi> {
     const MAboutUs(),
     const McontactUs(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).cardColor,
+      floatingActionButton: CircleAvatar(
+        radius: 25,
+        backgroundColor: Colors.teal,
+        child: IconButton(
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const WebViewScreen(),
+                )),
+            icon: const Icon(Icons.accessibility)),
+      ),
       body: _pages[myIndex],
 
       /*Bottom Navigation Bar */
@@ -45,9 +58,11 @@ class _MobileUiState extends State<MobileUi> {
             myIndex = index;
           });
         },
-        items:const [
+        items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_rounded,),
+            icon: Icon(
+              Icons.home_rounded,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
