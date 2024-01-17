@@ -6,36 +6,41 @@ class MAboutUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: 
-    Scaffold(
+    return SafeArea(
+        child: Scaffold(
       backgroundColor: Theme.of(context).cardColor,
       appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          toolbarHeight: 50,
-          leading: IconButton(onPressed: (){
-            Navigator.pushNamed(context, '/home');
-          }, icon:const Icon(Icons.arrow_back_outlined,color: Colors.white,)),
-        ),
-      body:ListView(
-        padding:const EdgeInsets.symmetric(horizontal: 15,vertical: 20),
-        physics:const BouncingScrollPhysics(),
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 50,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/home');
+            },
+            icon: const Icon(
+              Icons.arrow_back_outlined,
+              color: Colors.white,
+            )),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+        physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         children: [
-          AboutBox(context,'LinkedIn Id', () {
-            launchLinks('https://www.linkedin.com/in/somya-swaroop-naiwal-7a2507266/');
+          aboutBox(context, 'LinkedIn Id', () {
+            launchLinks(
+                'https://www.linkedin.com/in/somya-swaroop-naiwal-7a2507266/');
           }),
-          AboutBox(context, 'GitHub link', () {
+          aboutBox(context, 'GitHub link', () {
             launchLinks('https://github.com/Somya6464');
           }),
-          AboutBox(context, 'Skype Id', () {
+          aboutBox(context, 'Skype Id', () {
             launchLinks('https://join.skype.com/invite/wEYC3qJbWNLj');
           }),
-          AboutBox(context, 'Website link', () {
+          aboutBox(context, 'Website link', () {
             launchLinks('https://ssnaiwal.vq.pe/');
           }),
-
-                ],
-      ) ,
+        ],
+      ),
     ));
   }
 }

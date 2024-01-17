@@ -35,7 +35,7 @@ void launchLinks(String link) async {
   }
 }
 
-Widget AboutBox(BuildContext context, String text, Function()? onTap) {
+Widget aboutBox(BuildContext context, String text, Function()? onTap) {
   return GestureDetector(
     onTap: onTap,
     child: Container(
