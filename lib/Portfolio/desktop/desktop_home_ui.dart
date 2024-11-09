@@ -26,7 +26,7 @@ class _DesktopUiState extends State<DesktopUi> {
     'assets/images/s9.jpg',
   ];
 
-  final CarouselController slider1Controller = CarouselController();
+  final slider1Controller = CarouselSliderController();
   int currentIndex = 0;
 
   @override
@@ -519,10 +519,10 @@ class _DesktopUiState extends State<DesktopUi> {
                             ElevatedButton(
                                 onPressed: () {},
                                 style: const ButtonStyle(
-                                    elevation: MaterialStatePropertyAll(5),
+                                    elevation: WidgetStatePropertyAll(5),
                                     shadowColor:
-                                        MaterialStatePropertyAll(Colors.white),
-                                    backgroundColor: MaterialStatePropertyAll(
+                                        WidgetStatePropertyAll(Colors.white),
+                                    backgroundColor: WidgetStatePropertyAll(
                                         Color(0xFFFFB700))),
                                 child: const Text(
                                   'Send',
