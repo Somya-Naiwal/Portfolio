@@ -25,9 +25,10 @@ class DesktopUi extends StatelessWidget {
       body: ListView(physics: const BouncingScrollPhysics(), children: [
         /* Expert Electric solution portion */
         Container(
-          height: Get.height * 0.6,
-          padding: EdgeInsets.symmetric(
-            horizontal: 20.w,
+          padding: EdgeInsets.only(
+            left: 20.w,
+            right: 20.w,
+            bottom: height * 0.2,
           ),
           decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -187,11 +188,13 @@ class DesktopUi extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                "assets/images/s4.jpg",
-                height: height * 0.4,
-                width: width * 0.3,
-                fit: BoxFit.fill,
+              Expanded(
+                flex: 1,
+                child: Image.asset(
+                  "assets/images/s4.jpg",
+                  width: width * 0.3,
+                  fit: BoxFit.fill,
+                ),
               ),
               gap(width: 20.w),
               Flexible(
@@ -199,6 +202,8 @@ class DesktopUi extends StatelessWidget {
                   fit: FlexFit.loose,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       gap(height: 100.h),
                       tw.textBold(text: aboutUs, size: 20.sp, color: white),
@@ -217,7 +222,7 @@ class DesktopUi extends StatelessWidget {
                       rowWithIcon(
                           icon: CupertinoIcons.calendar_badge_plus,
                           text: easyOnlineScheduling,
-                          fontsize: 15.sp),
+                          fontsize: 14.sp),
                       gap(height: 10.h),
                       rowWithIcon(
                           icon: CupertinoIcons.lightbulb,
@@ -259,7 +264,7 @@ class DesktopUi extends StatelessWidget {
                   tw.textWith300(text: aboutUsString, size: 15.sp),
                   gap(height: 10.h),
                   gap(
-                    height: height * 0.2,
+                    height: height * 0.3,
                     width: width,
                     child: ListView.builder(
                       itemCount: hc.howItWorkList1.length,
@@ -301,8 +306,10 @@ class DesktopUi extends StatelessWidget {
                 ])),
         gap(height: 100.h),
         tw.textWith300(
+            text: "© Copyright: 2024", color: black, align: TextAlign.center),
+        tw.textWith300(
             text: "Designed & Developed by: Somya Swaroop Naiwal",
-            color: pink,
+            color: black,
             align: TextAlign.center)
       ]),
     ));

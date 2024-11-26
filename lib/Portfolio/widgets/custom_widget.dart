@@ -83,8 +83,10 @@ Widget rowWithIcon(
         color: color ?? white,
       ),
       gap(width: 15.w),
-      TextWidgets()
-          .textWith300(text: text, color: color ?? white, size: fontsize)
+      Expanded(
+          flex: 1,
+          child: TextWidgets()
+              .textWith300(text: text, color: color ?? white, size: fontsize))
     ],
   );
 }

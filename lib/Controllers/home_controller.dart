@@ -76,9 +76,4 @@ class HomeController extends GetxController {
       "subtitle": "Hire our precious service and\nresolve your problems."
     },
   ];
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    super.onInit();
-  }
 }

@@ -1,7 +1,4 @@
 import 'package:demo/Portfolio/desktop/desktop_home_ui.dart';
-import 'package:demo/Portfolio/mobile/about_mobile.dart';
-import 'package:demo/Portfolio/mobile/certificates_mobile.dart';
-import 'package:demo/Portfolio/mobile/contact_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -13,10 +10,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ScreenUtilInit(
+    return ScreenUtilInit(
+      enableScaleWH: () => false,
       minTextAdapt: true,
       splitScreenMode: true,
-      child: GetMaterialApp(
+      child: const GetMaterialApp(
         debugShowCheckedModeBanner: false,
         /* initialRoute: '/',
         routes: {

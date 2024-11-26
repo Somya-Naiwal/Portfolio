@@ -20,7 +20,7 @@ class TextWidgets {
     return Text(
       text,
       textAlign: align,
-      overflow: TextOverflow.clip,
+      overflow: TextOverflow.visible,
       softWrap: true,
       style: GoogleFonts.roboto(
           fontSize: size, color: color, fontWeight: FontWeight.w300),
@@ -36,6 +36,8 @@ class TextWidgets {
     return Text(
       text,
       textAlign: align,
+      overflow: TextOverflow.visible,
+      softWrap: true,
       style: GoogleFonts.roboto(
           fontSize: size, color: color, fontWeight: FontWeight.w600),
     );
@@ -50,6 +52,8 @@ class TextWidgets {
     return Text(
       text,
       textAlign: align,
+      overflow: TextOverflow.visible,
+      softWrap: true,
       style: GoogleFonts.roboto(
           fontSize: size, color: color, fontWeight: FontWeight.bold),
     );
