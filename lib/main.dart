@@ -13,19 +13,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(1440, 1024), // Base dimensions for web design
+    return const ScreenUtilInit(
       minTextAdapt: true,
       splitScreenMode: true,
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        /* initialRoute: '/',
         routes: {
           '/': (context) => const DesktopUi(),
           '/about': (context) => const MAboutUs(),
           '/certificates': (context) => const Mcertificates(),
           '/contact': (context) => const McontactUs(),
-        },
+        },*/
+        home: DesktopUi(),
       ),
     );
   }
