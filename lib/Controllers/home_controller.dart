@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HomeController extends GetxController {
   final nameController = TextEditingController();
@@ -35,14 +37,7 @@ class HomeController extends GetxController {
       "title": "Hire Our\nElectrician Services",
       "subtitle": "Hire our precious service and\nresolve your problems."
     },
-     {
-      "icon": Icons.spatial_tracking_outlined,
-      "title": "Discuss Your\nIssue With Us",
-      "subtitle": "Then disclose your\npromlems with us."
-    },
   ];
-
-
 
   final howItWorkList1 = [
     {
@@ -76,4 +71,12 @@ class HomeController extends GetxController {
       "subtitle": "Hire our precious service and\nresolve your problems."
     },
   ];
+
+  void launchCall() async {
+    if (await canLaunchUrl(Uri(scheme: 'tel', path: "7852094249"))) {
+      await launchUrl(Uri(scheme: 'tel', path: "7852094249"));
+    } else {
+      throw 'Could not launch call';
+    }
+  }
 }

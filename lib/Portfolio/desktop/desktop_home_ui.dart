@@ -48,7 +48,11 @@ class DesktopUi extends StatelessWidget {
                       color: pink,
                     ),
                     onSelected: (value) {
-                      debugPrint('Selected: $value');
+                      value == "Instagram"
+                          ? launchLinks(
+                              "https://www.instagram.com/vishal.chhipa.5811/profilecard/?igsh=MXZna2tyYjEwZHJrYg==")
+                          : launchLinks(
+                              "https://www.facebook.com/share/ws68eoYfR8ouZvsA/");
                     },
                     itemBuilder: (BuildContext context) {
                       return const [
@@ -57,8 +61,8 @@ class DesktopUi extends StatelessWidget {
                           child: Text("Instagram"),
                         ),
                         PopupMenuItem(
-                          value: "WhatsApp",
-                          child: Text("WhatsApp"),
+                          value: "Facebook",
+                          child: Text("Facebook"),
                         ),
                       ];
                     },
@@ -76,7 +80,9 @@ class DesktopUi extends StatelessWidget {
                                         BorderRadius.all(Radius.circular(2.r)),
                                     side: const BorderSide(
                                         color: pink, width: 2)))),
-                        onPressed: () {},
+                        onPressed: () {
+                          hc.launchCall();
+                        },
                         child:
                             tw.textWith600(text: "Call Now ↗", color: white)),
                   )
@@ -95,7 +101,7 @@ class DesktopUi extends StatelessWidget {
                       WidgetAnimator(
                         child: tw.textBold(
                           text: firstLine,
-                          size: 25.sp,
+                          size: 36.sp,
                         ),
                         atRestEffect: WidgetRestingEffects.pulse(),
                       ),
@@ -110,6 +116,7 @@ class DesktopUi extends StatelessWidget {
                   WidgetAnimator(
                     incomingEffect:
                         WidgetTransitionEffects.incomingSlideInFromTop(),
+                    atRestEffect: WidgetRestingEffects.fidget(),
                     child: CircleAvatar(
                       backgroundColor: pink,
                       radius: 100.r,
@@ -188,7 +195,7 @@ class DesktopUi extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
+              Flexible(
                 flex: 1,
                 child: Image.asset(
                   "assets/images/s4.jpg",
@@ -246,7 +253,7 @@ class DesktopUi extends StatelessWidget {
         gap(height: 50.h),
         /*Our Services Portion */
         Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * 0.15),
+            padding: EdgeInsets.symmetric(horizontal: width * 0.14),
             child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
