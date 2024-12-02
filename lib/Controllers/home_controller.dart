@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class HomeController extends GetxController {
   final nameController = TextEditingController();
@@ -41,40 +40,52 @@ class HomeController extends GetxController {
 
   final howItWorkList1 = [
     {
-      "icon": Icons.calendar_month_outlined,
-      "title": "Make An\n Appointment",
-      "subtitle": "First you need to confirm your\nappointment with us."
+      "image":
+          "https://cdn.pixabay.com/photo/2016/09/28/08/17/electric-test-screwdriver-1699953_1280.png",
+      // "https://img.freepik.com/free-vector/broken-washing-machine-realistic-indoor-composition-with-clothes-washer-water-pouring-out-door_1284-33057.jpg?semt=ais_hybrid",
+      "title": "Washing Machine",
     },
     {
-      "icon": Icons.spatial_tracking_outlined,
-      "title": "Discuss Your\nIssue With Us",
-      "subtitle": "Then disclose your\npromlems with us."
+      "image":
+          "https://cdn.pixabay.com/photo/2016/09/28/08/17/electric-test-screwdriver-1699953_1280.png",
+      // "https://img.freepik.com/free-vector/refrigerator-with-lots-food_1308-100311.jpg?semt=ais_hybrid",
+      "title": "Fridge / Refrigerator",
     },
     {
-      "icon": Icons.electrical_services_rounded,
-      "title": "Hire Our\nElectrician Services",
-      "subtitle": "Hire our precious service and\nresolve your problems."
+      "image":
+          "https://cdn.pixabay.com/photo/2016/09/28/08/17/electric-test-screwdriver-1699953_1280.png",
+      // "https://img.freepik.com/free-vector/microwave-oven-isolated-white-background_1308-64506.jpg?semt=ais_hybrid",
+      "title": "Microwave",
     },
     {
-      "icon": Icons.electrical_services_rounded,
-      "title": "Hire Our\nElectrician Services",
-      "subtitle": "Hire our precious service and\nresolve your problems."
+      "image":
+          "https://cdn.pixabay.com/photo/2016/09/28/08/17/electric-test-screwdriver-1699953_1280.png",
+      // "https://img.freepik.com/premium-photo/cooker-hood-metalic-color-white-background-isolated_508835-3760.jpg?semt=ais_hybrid",
+      "title": "Chimney",
     },
     {
-      "icon": Icons.electrical_services_rounded,
-      "title": "Hire Our\nElectrician Services",
-      "subtitle": "Hire our precious service and\nresolve your problems."
+      "image":
+          "https://cdn.pixabay.com/photo/2016/09/28/08/17/electric-test-screwdriver-1699953_1280.png",
+      // "https://img.freepik.com/free-photo/hvac-technician-working-capacitor-part-condensing-unit-male-worker-repairman-uniform-repairing-adjusting-conditioning-system-diagnosing-looking-technical-issues_155003-18258.jpg?semt=ais_hybrid",
+      "title": "AC",
     },
     {
-      "icon": Icons.electrical_services_rounded,
-      "title": "Hire Our\nElectrician Services",
-      "subtitle": "Hire our precious service and\nresolve your problems."
+      "image":
+          "https://cdn.pixabay.com/photo/2016/09/28/08/17/electric-test-screwdriver-1699953_1280.png",
+      // "https://img.freepik.com/free-vector/colored-realistic-electric-water-heater-boiler-illustration-with-big-white-headline-light-blue-wall_1284-33272.jpg?semt=ais_hybrid",
+      "title": "Geyser",
+    },
+    {
+      "image":
+          "https://cdn.pixabay.com/photo/2016/09/28/08/17/electric-test-screwdriver-1699953_1280.png",
+      // "https://img.freepik.com/free-vector/household-water-filter-purification-pitcher-with-replacement-cartridge-full-glass-realistic-advertising-composition-blue-splashes_1284-26867.jpg?semt=ais_hybrid",
+      "title": "R.O.",
     },
   ];
 
   void launchCall() async {
-    if (await canLaunchUrl(Uri(scheme: 'tel', path: "7852094249"))) {
-      await launchUrl(Uri(scheme: 'tel', path: "7852094249"));
+    if (await canLaunchUrl(Uri(scheme: 'tel', path: "9079288939"))) {
+      await launchUrl(Uri(scheme: 'tel', path: "9079288939"));
     } else {
       throw 'Could not launch call';
     }

@@ -116,7 +116,7 @@ class DesktopUi extends StatelessWidget {
                   WidgetAnimator(
                     incomingEffect:
                         WidgetTransitionEffects.incomingSlideInFromTop(),
-                    atRestEffect: WidgetRestingEffects.fidget(),
+                    atRestEffect: WidgetRestingEffects.bounce(),
                     child: CircleAvatar(
                       backgroundColor: pink,
                       radius: 100.r,
@@ -142,7 +142,7 @@ class DesktopUi extends StatelessWidget {
             children: [
               tw.textBold(
                 text: howItWorks,
-                size: 15.sp,
+                size: 25.sp,
               ),
               Container(
                 height: 1.h,
@@ -260,7 +260,7 @@ class DesktopUi extends StatelessWidget {
                 children: [
                   tw.textBold(
                     text: ourServices,
-                    size: 15.sp,
+                    size: 25.sp,
                   ),
                   Container(
                     height: 1.h,
@@ -279,31 +279,47 @@ class DesktopUi extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return Container(
-                          padding: EdgeInsets.all(8.w),
+                          // padding: EdgeInsets.all(8.w),
                           margin: EdgeInsets.only(right: 8.w),
                           width: 250,
                           decoration: BoxDecoration(
                               border: Border.all(color: lightBlue, width: 1.5)),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            // mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              CircleAvatar(
-                                backgroundColor: lightBlue,
-                                child: Icon(
-                                  hc.howItWorkList1[index]["icon"] as IconData?,
-                                  color: black,
+                              WidgetAnimator(
+                                incomingEffect: WidgetTransitionEffects
+                                    .incomingSlideInFromLeft(),
+                                outgoingEffect: WidgetTransitionEffects
+                                    .outgoingSlideOutToRight(),
+                                child: Container(
+                                  height: height * 0.16,
+                                  width: 250,
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                          bottomRight: Radius.circular(60))),
+                                  child: Image.network(
+                                    hc.howItWorkList1[index]["image"]
+                                        .toString(),
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                               ),
+                              /* CircleAvatar(
+                                backgroundColor: lightBlue,
+                                child: Icon(
+                                  hc.howItWorkList1[index]["image"] as IconData?,
+                                  color: black,
+                                ),
+                              ),*/
+                              gap(height: 20.h),
                               tw.textWith600(
                                   text: hc.howItWorkList1[index]["title"]
                                       .toString(),
+                                  size: 20.sp,
                                   align: TextAlign.center),
-                              tw.textWith300(
-                                  text: hc.howItWorkList1[index]["subtitle"]
-                                      .toString(),
-                                  align: TextAlign.center)
                             ],
                           ),
                         );
